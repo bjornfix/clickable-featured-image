@@ -51,10 +51,17 @@ Skips images already wrapped in links to prevent HTML issues.
 ## Changelog
 
 ### 1.0.3
-- Fix: Skip images already wrapped in links
-- Fix: Handle missing image data gracefully
+- Fixed: No longer breaks archive page links when theme already wraps featured images
+- Fixed: Added proper URL escaping for security
+- Tested compatibility with WordPress 6.9
 
-### 1.0.0
+### 1.0.2
+- Fixed syntax error that caused parse error
+
+### 1.0.1
+- Updated stable tag and function names to follow WordPress.org guidelines
+
+### 1.0
 - Initial release
 
 ## License
