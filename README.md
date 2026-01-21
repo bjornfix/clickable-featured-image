@@ -43,6 +43,9 @@ Yes. The featured image will link directly to the full-size image file.
 
 ## Changelog
 
+### 1.0.6
+* Fixed: Prevent duplicate anchor tags on query loops when theme already wraps featured images
+
 ### 1.0.5
 * Fixed: Added CSS to prevent layout spacing issues on archive pages with Twenty Twenty-Four theme
 
@@ -65,6 +68,9 @@ Updated stable tag and function names to follow guidelines for the Clickable Fea
 Initial release
 
 ## Upgrade Notice
+
+### 1.0.6
+Fixes duplicate link issue on query loops in Twenty Twenty-Four theme by detecting and skipping when theme already wraps images.
 
 ### 1.0.5
 Fixes archive layout spacing issues on Twenty Twenty-Four theme by adding proper CSS for clickable featured images.
