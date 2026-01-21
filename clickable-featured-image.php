@@ -3,7 +3,7 @@
 Plugin Name: Clickable Featured Image
 Plugin URI: https://wordpress.org/plugins/clickable-featured-image/
 Description: A plugin that replaces the featured image in a post or page with one that is clickable if there is a featured image and links to the full size image.
-Version: 1.0.5
+Version: 1.0.6
 Author: Devenia
 Author URI: https://devenia.com/
 License: GPLv2 or later
@@ -57,6 +57,11 @@ function cfi_clickable_featured_image($html, $post_id, $post_thumbnail_id) {
     $block_has_link = is_array($block_context) && !empty($block_context['attrs']['isLink']);
     $GLOBALS['cfi_post_featured_image_block'] = null;
 
+    // Check if image is already wrapped in an anchor (e.g., by theme in query loops)
+    if (preg_match('/<a\b/i', $html)) {
+        return $html;
+    }
+
     if (is_singular()) {
         $anchor_open = '<a href="' . esc_url($image_data[0]) . '" data-caption="' . esc_attr($caption) . '" class="cfi-featured-image-link">';
         $anchor_close = '</a>';
@@ -78,7 +83,7 @@ add_filter('post_thumbnail_html', 'cfi_clickable_featured_image', 10, 3);
 
 function cfi_enqueue_styles() {
     if (!is_singular()) {
-        wp_register_style('cfi-style', false, array(), '1.0.5');
+        wp_register_style('cfi-style', false, array(), '1.0.6');
         wp_enqueue_style('cfi-style');
         wp_add_inline_style('cfi-style', '
             .cfi-featured-image-link {
