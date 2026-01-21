@@ -1,78 +1,80 @@
 # Clickable Featured Image
 
-**Make featured images clickable.** Lightbox on posts, links on archives. Zero config.
+Make featured images clickable. Opens in lightbox on posts, links to post on archives. Zero configuration.
 
-[![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-blue.svg)](https://wordpress.org)
-[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
+[![WordPress Plugin Version](https://img.shields.io/wordpress/v/clickable-featured-image?style=flat-square)](https://wordpress.org/plugins/clickable-featured-image/)
+[![WordPress Tested Up To](https://img.shields.io/wordpress/plugin/tested/clickable-featured-image?style=flat-square)](https://wordpress.org/plugins/clickable-featured-image/)
+[![WordPress Rating](https://img.shields.io/wordpress/plugin/rating/clickable-featured-image?style=flat-square)](https://wordpress.org/plugins/clickable-featured-image/)
 
-## What It Does
+## Description
 
-Makes your featured images clickable:
-
-- **On single posts/pages:** Clicks open the full-size image in a lightbox
-- **On archives/loops:** Clicks go to the post
-
-Simple, automatic, no settings to configure.
-
-## Why?
-
-Featured images in WordPress are not clickable by default. Visitors expect to click images. This plugin fixes that with zero configuration.
-
-## Installation
-
-1. Download from [Releases](https://github.com/bjornfix/clickable-featured-image/releases)
-2. Upload via WordPress Admin → Plugins → Add New → Upload Plugin
-3. Activate
-
-Done. No settings, just works.
+Clickable Featured Image for Lightbox & Archives is a WordPress plugin that enhances your featured images by making them clickable, opening the full-size image in a lightbox on single post pages, and linking to the post itself on archive pages like category listings.
 
 ## Features
 
-- Wraps featured images in appropriate links
-- Uses BaguetteBox for lightbox (if available)
-- Prevents nested link issues
-- Works with any theme using `post_thumbnail_html` filter
-- Preserves image captions for lightbox
+- Make featured images clickable and open in a lightbox on single post pages
+- Make featured images clickable and link to the post itself on archive pages
+- Tested with "Lightbox for Gallery & Image Block" plugin
+- Tested with GeneratePress theme
 
-## How It Works
+## Installation
 
-The plugin hooks into WordPress's `post_thumbnail_html` filter:
+1. Upload the folder `clickable-featured-image` to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. That's it! The plugin will automatically make your featured images clickable on single post pages and archive pages.
 
-- `is_singular()` = true → Links to full-size image (lightbox)
-- `is_singular()` = false → Links to post permalink
+## Frequently Asked Questions
 
-Skips images already wrapped in links to prevent HTML issues.
+### Does the plugin have a Settings page?
 
-## Requirements
+Currently, the functionality is so simple, that there is no need to set anything. Activate it, and it just works.
 
-- WordPress 5.0+
-- For lightbox: BaguetteBox (optional, theme must provide)
+### Will this plugin work with any lightbox plugin?
+
+This plugin has been tested with the "Lightbox for Gallery & Image Block" plugin, but it should work with other lightbox plugins as well.
+
+### Will this plugin work with any WordPress theme?
+
+Clickable Featured Image has been tested with the GeneratePress theme. It should work with most themes, but compatibility with all themes is not guaranteed.
+
+### Can I use this plugin without a lightbox plugin?
+
+Yes. The featured image will link directly to the full-size image file.
 
 ## Changelog
 
+### 1.0.5
+* Fixed: Added CSS to prevent layout spacing issues on archive pages with Twenty Twenty-Four theme
+
+### 1.0.4
+* Fixed: Avoid wrapping full block markup on archives by linking only the image/picture, reducing theme layout spacing issues
+
 ### 1.0.3
-- Fixed: No longer breaks archive page links when theme already wraps featured images
-- Fixed: Added proper URL escaping for security
-- Tested compatibility with WordPress 6.9
+* Fixed: No longer breaks archive page links when theme already wraps featured images
+* Fixed: Added proper URL escaping for security
+* Tested compatibility with WordPress 6.9
+* Updated minimum PHP requirement to 7.4
 
 ### 1.0.2
-- Fixed syntax error that caused parse error
+Fixed a syntax error in the plugin code that caused a parse error.
 
 ### 1.0.1
-- Updated stable tag and function names to follow WordPress.org guidelines
+Updated stable tag and function names to follow guidelines for the Clickable Featured Image WordPress Plugin.
 
 ### 1.0
-- Initial release
+Initial release
+
+## Upgrade Notice
+
+### 1.0.5
+Fixes archive layout spacing issues on Twenty Twenty-Four theme by adding proper CSS for clickable featured images.
 
 ## License
 
-GPL-2.0+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
-## Author
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-[Devenia](https://devenia.com) - We've been doing SEO and web development since 1993.
+You should have received a copy of the GNU General Public License along with this program; if not, or write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-## Links
-
-- [Plugin Page](https://devenia.com/plugins/clickable-featured-image/)
-- [WordPress.org](https://wordpress.org/plugins/clickable-featured-image/)
+https://www.gnu.org/licenses/gpl-2.0.html

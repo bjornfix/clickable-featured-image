@@ -1,4 +1,4 @@
-# Clickable Featured Image for Lightbox & Archives
+# Clickable Featured Image
 
 - Contributors: basicus
 - Donate link: https://devenia.com/
@@ -6,7 +6,7 @@
 - Requires at least: 5.4
 - Tested up to: 6.9
 - Requires PHP: 7.4
-- Stable tag: 1.0.3
+- Stable tag: 1.0.5
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,12 @@ Yes. The featured image will link directly to the full-size image file.
 
 == Changelog ==
 
+= 1.0.5 =
+* Fixed: Added CSS to prevent layout spacing issues on archive pages with Twenty Twenty-Four theme
+
+= 1.0.4 =
+* Fixed: Avoid wrapping full block markup on archives by linking only the image/picture, reducing theme layout spacing issues
+
 = 1.0.3 =
 * Fixed: No longer breaks archive page links when theme already wraps featured images
 * Fixed: Added proper URL escaping for security
@@ -65,6 +71,12 @@ Updated stable tag and function names to follow guidelines for the Clickable Fea
 
 Initial release
 == Upgrade Notice ==
+
+= 1.0.5 =
+Fixes archive layout spacing issues on Twenty Twenty-Four theme by adding proper CSS for clickable featured images.
+
+= 1.0.4 =
+Fixes archive layout spacing issues in some themes by wrapping only the image/picture instead of the full block markup.
 
 = 1.0.3 =
 Fixes archive page compatibility issue. Now detects if theme already wraps images in links. Recommended update for all users.
