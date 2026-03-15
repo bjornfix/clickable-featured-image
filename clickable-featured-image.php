@@ -3,7 +3,7 @@
 Plugin Name: Clickable Featured Image
 Plugin URI: https://wordpress.org/plugins/clickable-featured-image/
 Description: A plugin that replaces the featured image in a post or page with one that is clickable if there is a featured image and links to the full size image.
-Version: 1.0.6
+Version: 1.0.7
 Author: Devenia
 Author URI: https://devenia.com/
 License: GPLv2 or later
@@ -21,6 +21,21 @@ function cfi_mark_post_featured_image_block($parsed_block) {
     return $parsed_block;
 }
 add_filter('render_block_data', 'cfi_mark_post_featured_image_block', 10, 1);
+
+function cfi_add_mwl_img_id($html, $attachment_id) {
+    if (empty($attachment_id) || preg_match('/data-mwl-img-id\s*=\s*["\']/', $html)) {
+        return $html;
+    }
+
+    if (preg_match('/<img\b/i', $html)) {
+        $updated = preg_replace('/<img\b/i', '<img data-mwl-img-id="' . intval($attachment_id) . '"', $html, 1);
+        if (!empty($updated)) {
+            return $updated;
+        }
+    }
+
+    return $html;
+}
 
 function cfi_wrap_featured_media($html, $anchor_open, $anchor_close) {
     if (preg_match('/<a\\s/i', $html)) {
@@ -63,6 +78,7 @@ function cfi_clickable_featured_image($html, $post_id, $post_thumbnail_id) {
     }
 
     if (is_singular()) {
+        $html = cfi_add_mwl_img_id($html, $post_thumbnail_id);
         $anchor_open = '<a href="' . esc_url($image_data[0]) . '" data-caption="' . esc_attr($caption) . '" class="cfi-featured-image-link">';
         $anchor_close = '</a>';
         $html = cfi_wrap_featured_media($html, $anchor_open, $anchor_close);
@@ -83,7 +99,7 @@ add_filter('post_thumbnail_html', 'cfi_clickable_featured_image', 10, 3);
 
 function cfi_enqueue_styles() {
     if (!is_singular()) {
-        wp_register_style('cfi-style', false, array(), '1.0.6');
+        wp_register_style('cfi-style', false, array(), '1.0.7');
         wp_enqueue_style('cfi-style');
         wp_add_inline_style('cfi-style', '
             .cfi-featured-image-link {

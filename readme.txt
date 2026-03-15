@@ -6,7 +6,7 @@
 - Requires at least: 5.4
 - Tested up to: 6.9
 - Requires PHP: 7.4
-- Stable tag: 1.0.6
+- Stable tag: 1.0.7
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,9 @@ Yes. The featured image will link directly to the full-size image file.
 
 == Changelog ==
 
+= 1.0.7 =
+* Fixed: Add `data-mwl-img-id` to singular featured images so Meow Lightbox can bind reliably outside `.entry-content`
+
 = 1.0.6 =
 * Fixed: Prevent duplicate anchor tags on query loops when theme already wraps featured images
 
@@ -74,6 +77,9 @@ Updated stable tag and function names to follow guidelines for the Clickable Fea
 
 Initial release
 == Upgrade Notice ==
+
+= 1.0.7 =
+Fixes single-post lightbox binding when the featured image is rendered in theme header containers instead of the content area.
 
 = 1.0.6 =
 Fixes duplicate link issue on query loops in Twenty Twenty-Four theme by detecting and skipping when theme already wraps images.
