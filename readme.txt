@@ -6,7 +6,7 @@
 - Requires at least: 5.4
 - Tested up to: 6.9
 - Requires PHP: 7.4
-- Stable tag: 1.0.7
+- Stable tag: 1.0.9
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,8 +50,14 @@ Yes. The featured image will link directly to the full-size image file.
 
 == Changelog ==
 
+= 1.0.9 =
+* Fixed: Let Meow Lightbox re-register singular featured images by using `wp-image-<id>` classes instead of pre-setting `data-mwl-img-id`
+
+= 1.0.8 =
+* Fixed: Register singular featured-image containers with Meow Lightbox when themes render them outside `.entry-content`
+
 = 1.0.7 =
-* Fixed: Add `data-mwl-img-id` to singular featured images so Meow Lightbox can bind reliably outside `.entry-content`
+* Fixed: Add `data-mwl-img-id` to singular featured images for Meow Lightbox compatibility
 
 = 1.0.6 =
 * Fixed: Prevent duplicate anchor tags on query loops when theme already wraps featured images
@@ -78,8 +84,14 @@ Updated stable tag and function names to follow guidelines for the Clickable Fea
 Initial release
 == Upgrade Notice ==
 
+= 1.0.9 =
+Fixes the remaining Meow integration bug by allowing the featured image to be queued dynamically instead of being skipped as already registered.
+
+= 1.0.8 =
+Completes the Meow Lightbox fix by registering featured-image header containers, so single-post featured images open correctly in the lightbox again.
+
 = 1.0.7 =
-Fixes single-post lightbox binding when the featured image is rendered in theme header containers instead of the content area.
+Adds `data-mwl-img-id` to singular featured images for better Meow Lightbox compatibility.
 
 = 1.0.6 =
 Fixes duplicate link issue on query loops in Twenty Twenty-Four theme by detecting and skipping when theme already wraps images.
