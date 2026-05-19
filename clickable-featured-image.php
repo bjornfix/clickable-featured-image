@@ -3,7 +3,7 @@
 Plugin Name: Clickable Featured Image
 Plugin URI: https://wordpress.org/plugins/clickable-featured-image/
 Description: A plugin that replaces the featured image in a post or page with one that is clickable if there is a featured image and links to the full size image.
-Version: 1.0.12
+Version: 1.0.13
 Author: Devenia
 Author URI: https://devenia.com/
 License: GPLv2 or later
@@ -71,6 +71,16 @@ function cfi_wrap_featured_media($html, $anchor_open, $anchor_close) {
     return $anchor_open . $html . $anchor_close;
 }
 
+function cfi_remove_auto_sizes($html) {
+    if (empty($html) || stripos($html, ' sizes=') === false) {
+        return $html;
+    }
+
+    $updated = preg_replace("/\\s+sizes=([\"'])auto,\\s*/i", ' sizes=$1', $html, 1);
+
+    return !empty($updated) ? $updated : $html;
+}
+
 function cfi_clickable_featured_image($html, $post_id, $post_thumbnail_id) {
     $image_data = wp_get_attachment_image_src($post_thumbnail_id, 'full');
 
@@ -98,6 +108,7 @@ function cfi_clickable_featured_image($html, $post_id, $post_thumbnail_id) {
         if ($block_has_link) {
             return $html;
         }
+        $html = cfi_remove_auto_sizes($html);
         $post_url = get_permalink($post_id);
         $anchor_open = '<a href="' . esc_url($post_url) . '" class="cfi-featured-image-link">';
         $anchor_close = '</a>';
@@ -111,7 +122,7 @@ add_filter('post_thumbnail_html', 'cfi_clickable_featured_image', 10, 3);
 
 function cfi_enqueue_styles() {
     if (!is_singular()) {
-        wp_register_style('cfi-style', false, array(), '1.0.12');
+        wp_register_style('cfi-style', false, array(), '1.0.13');
         wp_enqueue_style('cfi-style');
         $thumbnail_width = absint(get_option('thumbnail_size_w', 150));
         $thumbnail_height = absint(get_option('thumbnail_size_h', 150));

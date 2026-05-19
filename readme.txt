@@ -6,7 +6,7 @@
 - Requires at least: 5.4
 - Tested up to: 6.9
 - Requires PHP: 7.4
-- Stable tag: 1.0.12
+- Stable tag: 1.0.13
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,9 @@ Yes. The featured image will link directly to the full-size image file.
 
 == Changelog ==
 
+= 1.0.13 =
+* Fixed: Archive featured images using medium sizes no longer inherit browser `sizes="auto"` behavior that can render later lazy-loaded images much larger than the theme-requested size.
+
 = 1.0.12 =
 * Fixed: Explicitly reserves the configured WordPress thumbnail dimensions for archive thumbnails, preventing lazy-loaded images from expanding to full archive width before load.
 
@@ -89,6 +92,9 @@ Updated stable tag and function names to follow guidelines for the Clickable Fea
 
 Initial release
 == Upgrade Notice ==
+
+= 1.0.13 =
+Keeps lazy-loaded archive images at the theme-requested medium size instead of letting browser auto-sizes expand them.
 
 = 1.0.12 =
 Prevents lazy-loaded archive thumbnails from expanding to full width before the image loads.
