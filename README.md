@@ -43,7 +43,7 @@ Yes. The featured image will link directly to the full-size image file.
 
 ## Changelog
 
-### 1.0.10
+### 1.0.11
 * Fixed: Archive image links no longer force featured images to full container width, preserving theme-requested thumbnail sizes in GeneratePress archives.
 
 ### 1.0.9
@@ -81,7 +81,7 @@ Initial release
 
 ## Upgrade Notice
 
-### 1.0.10
+### 1.0.11
 Fixes archive thumbnails being stretched to full width when themes request small featured-image sizes.
 
 ### 1.0.9

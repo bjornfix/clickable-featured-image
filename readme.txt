@@ -6,7 +6,7 @@
 - Requires at least: 5.4
 - Tested up to: 6.9
 - Requires PHP: 7.4
-- Stable tag: 1.0.10
+- Stable tag: 1.0.11
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,7 +50,7 @@ Yes. The featured image will link directly to the full-size image file.
 
 == Changelog ==
 
-= 1.0.10 =
+= 1.0.11 =
 * Fixed: Archive image links no longer force featured images to full container width, preserving theme-requested thumbnail sizes in GeneratePress archives.
 
 = 1.0.9 =
@@ -87,7 +87,7 @@ Updated stable tag and function names to follow guidelines for the Clickable Fea
 Initial release
 == Upgrade Notice ==
 
-= 1.0.10 =
+= 1.0.11 =
 Fixes archive thumbnails being stretched to full width when themes request small featured-image sizes.
 
 = 1.0.9 =
