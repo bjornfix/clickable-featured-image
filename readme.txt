@@ -6,7 +6,7 @@
 - Requires at least: 5.4
 - Tested up to: 6.9
 - Requires PHP: 7.4
-- Stable tag: 1.0.11
+- Stable tag: 1.0.12
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,9 @@ Yes. The featured image will link directly to the full-size image file.
 
 == Changelog ==
 
+= 1.0.12 =
+* Fixed: Explicitly reserves the configured WordPress thumbnail dimensions for archive thumbnails, preventing lazy-loaded images from expanding to full archive width before load.
+
 = 1.0.11 =
 * Fixed: Archive image links no longer force featured images to full container width, preserving theme-requested thumbnail sizes in GeneratePress archives.
 
@@ -86,6 +89,9 @@ Updated stable tag and function names to follow guidelines for the Clickable Fea
 
 Initial release
 == Upgrade Notice ==
+
+= 1.0.12 =
+Prevents lazy-loaded archive thumbnails from expanding to full width before the image loads.
 
 = 1.0.11 =
 Fixes archive thumbnails being stretched to full width when themes request small featured-image sizes.

@@ -3,7 +3,7 @@
 Plugin Name: Clickable Featured Image
 Plugin URI: https://wordpress.org/plugins/clickable-featured-image/
 Description: A plugin that replaces the featured image in a post or page with one that is clickable if there is a featured image and links to the full size image.
-Version: 1.0.11
+Version: 1.0.12
 Author: Devenia
 Author URI: https://devenia.com/
 License: GPLv2 or later
@@ -111,23 +111,31 @@ add_filter('post_thumbnail_html', 'cfi_clickable_featured_image', 10, 3);
 
 function cfi_enqueue_styles() {
     if (!is_singular()) {
-        wp_register_style('cfi-style', false, array(), '1.0.11');
+        wp_register_style('cfi-style', false, array(), '1.0.12');
         wp_enqueue_style('cfi-style');
-        wp_add_inline_style('cfi-style', '
+        $thumbnail_width = absint(get_option('thumbnail_size_w', 150));
+        $thumbnail_height = absint(get_option('thumbnail_size_h', 150));
+        wp_add_inline_style('cfi-style', sprintf('
             .post-image .cfi-featured-image-link,
             .cfi-featured-image-link {
                 display: inline-block;
                 width: auto;
-                max-width: 100%;
+                max-width: 100%%;
             }
             .post-image .cfi-featured-image-link img,
             .cfi-featured-image-link img {
                 display: block;
                 width: auto !important;
-                max-width: 100%;
+                max-width: 100%%;
                 height: auto !important;
             }
-        ');
+            .post-image .cfi-featured-image-link img.attachment-thumbnail,
+            .cfi-featured-image-link img.attachment-thumbnail {
+                width: %1$dpx !important;
+                height: %2$dpx !important;
+                object-fit: cover;
+            }
+        ', $thumbnail_width, $thumbnail_height));
     }
 }
 add_action('wp_enqueue_scripts', 'cfi_enqueue_styles');
@@ -137,7 +145,7 @@ function cfi_enqueue_meow_lightbox_bridge() {
         return;
     }
 
-    wp_register_script('cfi-meow-lightbox-bridge', false, array(), '1.0.11', true);
+    wp_register_script('cfi-meow-lightbox-bridge', false, array(), '1.0.12', true);
     wp_enqueue_script('cfi-meow-lightbox-bridge');
     wp_add_inline_script(
         'cfi-meow-lightbox-bridge',
