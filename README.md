@@ -43,6 +43,9 @@ Yes. The featured image will link directly to the full-size image file.
 
 ## Changelog
 
+### 1.0.10
+* Fixed: Archive image links no longer force featured images to full container width, preserving theme-requested thumbnail sizes in GeneratePress archives.
+
 ### 1.0.9
 * Fixed: Let Meow Lightbox re-register singular featured images by using `wp-image-<id>` classes instead of pre-setting `data-mwl-img-id`
 
@@ -77,6 +80,9 @@ Updated stable tag and function names to follow guidelines for the Clickable Fea
 Initial release
 
 ## Upgrade Notice
+
+### 1.0.10
+Fixes archive thumbnails being stretched to full width when themes request small featured-image sizes.
 
 ### 1.0.9
 Fixes the remaining Meow integration bug by allowing the featured image to be queued dynamically instead of being skipped as already registered.

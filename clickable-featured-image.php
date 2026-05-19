@@ -3,7 +3,7 @@
 Plugin Name: Clickable Featured Image
 Plugin URI: https://wordpress.org/plugins/clickable-featured-image/
 Description: A plugin that replaces the featured image in a post or page with one that is clickable if there is a featured image and links to the full size image.
-Version: 1.0.9
+Version: 1.0.10
 Author: Devenia
 Author URI: https://devenia.com/
 License: GPLv2 or later
@@ -111,15 +111,17 @@ add_filter('post_thumbnail_html', 'cfi_clickable_featured_image', 10, 3);
 
 function cfi_enqueue_styles() {
     if (!is_singular()) {
-        wp_register_style('cfi-style', false, array(), '1.0.9');
+        wp_register_style('cfi-style', false, array(), '1.0.10');
         wp_enqueue_style('cfi-style');
         wp_add_inline_style('cfi-style', '
             .cfi-featured-image-link {
-                display: block;
+                display: inline-block;
+                max-width: 100%;
             }
             .cfi-featured-image-link img {
                 display: block;
-                width: 100%;
+                width: auto;
+                max-width: 100%;
                 height: auto;
             }
         ');
@@ -132,7 +134,7 @@ function cfi_enqueue_meow_lightbox_bridge() {
         return;
     }
 
-    wp_register_script('cfi-meow-lightbox-bridge', false, array(), '1.0.9', true);
+    wp_register_script('cfi-meow-lightbox-bridge', false, array(), '1.0.10', true);
     wp_enqueue_script('cfi-meow-lightbox-bridge');
     wp_add_inline_script(
         'cfi-meow-lightbox-bridge',
