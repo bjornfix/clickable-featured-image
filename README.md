@@ -1,122 +1,15 @@
 # Clickable Featured Image
 
-Make featured images clickable. Opens in lightbox on posts, links to post on archives. Zero configuration.
+Make WordPress featured images clickable. On single posts, the featured image links to the full-size image for lightbox use. On archive pages, the featured image links to the post.
 
-[![WordPress Plugin Version](https://img.shields.io/wordpress/v/clickable-featured-image?style=flat-square)](https://wordpress.org/plugins/clickable-featured-image/)
-[![WordPress Tested Up To](https://img.shields.io/wordpress/plugin/tested/clickable-featured-image?style=flat-square)](https://wordpress.org/plugins/clickable-featured-image/)
-[![WordPress Rating](https://img.shields.io/wordpress/plugin/rating/clickable-featured-image?style=flat-square)](https://wordpress.org/plugins/clickable-featured-image/)
+## Canonical plugin
 
-## Description
+This GitHub repository is a lightweight landing page only.
 
-Clickable Featured Image for Lightbox & Archives is a WordPress plugin that enhances your featured images by making them clickable, opening the full-size image in a lightbox on single post pages, and linking to the post itself on archive pages like category listings.
+The plugin source, releases, downloads, and support live on WordPress.org:
 
-## Features
+- Plugin page: https://wordpress.org/plugins/clickable-featured-image/
+- Support: https://wordpress.org/support/plugin/clickable-featured-image/
+- Source: https://plugins.svn.wordpress.org/clickable-featured-image/
 
-- Make featured images clickable and open in a lightbox on single post pages
-- Make featured images clickable and link to the post itself on archive pages
-- Tested with "Lightbox for Gallery & Image Block" plugin
-- Tested with GeneratePress theme
-
-## Installation
-
-1. Upload the folder `clickable-featured-image` to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. That's it! The plugin will automatically make your featured images clickable on single post pages and archive pages.
-
-## Frequently Asked Questions
-
-### Does the plugin have a Settings page?
-
-Currently, the functionality is so simple, that there is no need to set anything. Activate it, and it just works.
-
-### Will this plugin work with any lightbox plugin?
-
-This plugin has been tested with the "Lightbox for Gallery & Image Block" plugin, but it should work with other lightbox plugins as well.
-
-### Will this plugin work with any WordPress theme?
-
-Clickable Featured Image has been tested with the GeneratePress theme. It should work with most themes, but compatibility with all themes is not guaranteed.
-
-### Can I use this plugin without a lightbox plugin?
-
-Yes. The featured image will link directly to the full-size image file.
-
-## Changelog
-
-### 1.0.13
-- Fixed: Archive featured images using medium sizes no longer inherit browser `sizes="auto"` behavior that can render later lazy-loaded images much larger than the theme-requested size.
-
-### 1.0.12
-- Fixed: Explicitly reserves the configured WordPress thumbnail dimensions for archive thumbnails, preventing lazy-loaded images from expanding to full archive width before load.
-
-### 1.0.11
-* Fixed: Archive image links no longer force featured images to full container width, preserving theme-requested thumbnail sizes in GeneratePress archives.
-
-### 1.0.9
-* Fixed: Let Meow Lightbox re-register singular featured images by using `wp-image-<id>` classes instead of pre-setting `data-mwl-img-id`
-
-### 1.0.8
-* Fixed: Register singular featured-image containers with Meow Lightbox when themes render them outside `.entry-content`
-
-### 1.0.7
-* Fixed: Add `data-mwl-img-id` to singular featured images for Meow Lightbox compatibility
-
-### 1.0.6
-* Fixed: Prevent duplicate anchor tags on query loops when theme already wraps featured images
-
-### 1.0.5
-* Fixed: Added CSS to prevent layout spacing issues on archive pages with Twenty Twenty-Four theme
-
-### 1.0.4
-* Fixed: Avoid wrapping full block markup on archives by linking only the image/picture, reducing theme layout spacing issues
-
-### 1.0.3
-* Fixed: No longer breaks archive page links when theme already wraps featured images
-* Fixed: Added proper URL escaping for security
-* Tested compatibility with WordPress 6.9
-* Updated minimum PHP requirement to 7.4
-
-### 1.0.2
-Fixed a syntax error in the plugin code that caused a parse error.
-
-### 1.0.1
-Updated stable tag and function names to follow guidelines for the Clickable Featured Image WordPress Plugin.
-
-### 1.0
-Initial release
-
-## Upgrade Notice
-
-### 1.0.13
-Keeps lazy-loaded archive images at the theme-requested medium size instead of letting browser auto-sizes expand them.
-
-### 1.0.12
-Prevents lazy-loaded archive thumbnails from expanding to full width before the image loads.
-
-### 1.0.11
-Fixes archive thumbnails being stretched to full width when themes request small featured-image sizes.
-
-### 1.0.9
-Fixes the remaining Meow integration bug by allowing the featured image to be queued dynamically instead of being skipped as already registered.
-
-### 1.0.8
-Completes the Meow Lightbox fix by registering featured-image header containers, so single-post featured images open correctly in the lightbox again.
-
-### 1.0.7
-Adds `data-mwl-img-id` to singular featured images for better Meow Lightbox compatibility.
-
-### 1.0.6
-Fixes duplicate link issue on query loops in Twenty Twenty-Four theme by detecting and skipping when theme already wraps images.
-
-### 1.0.5
-Fixes archive layout spacing issues on Twenty Twenty-Four theme by adding proper CSS for clickable featured images.
-
-## License
-
-This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program; if not, or write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
-
-https://www.gnu.org/licenses/gpl-2.0.html
+Please install and update the plugin through WordPress.org or the WordPress admin plugin directory.
